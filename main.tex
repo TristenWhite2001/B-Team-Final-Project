@@ -1,84 +1,284 @@
+\documentclass[12pt]{article}
+\renewcommand{\thesection}{\Roman{section}} 
+\renewcommand{\thesubsection}{\thesection.\Roman{subsection}}
+%\usepackage[tocindentauto]{tocstyle}
+%\usetocstyle{KOMAlike} %the previous line resets it
+%\usepackage{natbib}
+\usepackage{biblatex}
+\addbibresource[]{ref.bib}
+\usepackage{url}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{graphviz}
+\usepackage[T1]{fontenc}
+\graphicspath{{images/}}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{parskip}
+\usepackage{hologo}
+\usepackage{listings}
+\usepackage{titlesec, blindtext, color}
+\usepackage{titling}
+\usepackage{tcolorbox}
+\usepackage[hmargin=1in,vmargin=1in]{geometry}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{appendix}
+\usepackage{listings} % For code importing
+\usepackage{xcolor} % for setting colors
+\usepackage{svg}
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
-@book{kernighan1978c,
-    title = {The C Programming Language},
-    author = {Brian W. Kernighan, Dennis M. Ritchie},
-    isbn = {9780137460847},
-    year={1978},
-    publisher={Prentice Hall}
+\input{arduinoLanguage.tex}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	urlcolor=cyan,
 }
 
-%Some logical procedures for developing vertical scrolling games in C
-@online{basicgame,
-    author = "Nonki Takahashi",
-    title = "Small Basic Game Programming- Vertical Scrolling Game",
-    url = "https://techcommunity.microsoft.com/t5/small-basic-blog/small-basic-game-programming-vertical-scrolling-game/ba-p/336809",
-    addendum = "(accessed: 02.24.2023)",
-    keywords = "scrolling,game"
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+ }
+
+ \lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{commentsColor}\textit,    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=tb,	                   	   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{keywordsColor}\bfseries,       % keyword style
+  language=Python,                 % the language of the code (can be overrided per snippet)
+  otherkeywords={*,...},           % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=8pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{commentsColor}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{stringColor}, % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname,                  % show the filename of files included with \lstinputlisting; also try caption instead of title
+  columns=fixed                    % Using fixed column width (for e.g. nice alignment)
 }
 
-@article{doi:10.1080/01449290410001669923,
-    author = { Minhee   Chae  and  Jinwoo   Kim },
-    title = {Do size and structure matter to mobile users? An empirical study of the effects of screen size, information structure, and task complexity on user activities with standard web phones},
-    journal = {Behaviour \& Information Technology},
-    volume = {23},
-    number = {3},
-    pages = {165-181},
-    year  = {2004},
-    publisher = {Taylor & Francis},
-    DOI = {https://doi.org/10.1080/01449290410001669923},
-    keywords = "coding"
-}
-    
-
-    %10.1080/01449290410001669923
-
-%eprint = { 
-    
-        %https://doi.org/10.1080/01449290410001669923
-    
-    
-
-
-
-
-\begin{comment}
-@article{einstein,
-    author = "Albert Einstein",
-    title = "{Zur Elektrodynamik bewegter K{\"o}rper}. ({German})
-    [{On} the electrodynamics of moving bodies]",
-    journal = "Annalen der Physik",
-    volume = "322",
-    number = "10",
-    pages = "891--921",
-    year = "1905",
-    DOI = "http://dx.doi.org/10.1002/andp.19053221004",
-    keywords = "physics"
+\lstdefinestyle{customasm}{
+  belowcaptionskip=1\baselineskip,
+  frame=L,
+  xleftmargin=\parindent,
+  language=[x86masm]Assembler,
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\itshape\color{purple!40!black},
 }
 
-@book{dirac,
-   title = {The Principles of Quantum Mechanics},
-   author = {Paul Adrien Maurice Dirac},
-   isbn = {9780198520115},
-   series = {International series of monographs on physics},
-   year = {1981},
-   publisher = {Clarendon Press},
-   keywords = {physics}
-}
+\lstset{escapechar=@,style=customc}
 
-@online{knuthwebsite,
-    author = "Donald Knuth",
-    title = "Knuth: Computers and Typesetting",
-    url  = "http://www-cs-faculty.stanford.edu/~uno/abcde.html",
-    addendum = "(accessed: 01.09.2016)",
-    keywords = "latex,knuth"
-}
+%\makeatletter
+%\let\thetitle\@title
 
-@inbook{knuth-fa,
-    author = "Donald E. Knuth",
-    title = "Fundamental Algorithms",
-    publisher = "Addison-Wesley",
-    year = "1973",
-    chapter = "1.2",
-    keywords  = "knuth,programming"
-}
-\end{comment}
+%\let\thedate\@date
+%\makeatother
+
+%\pagestyle{fancy}
+%\fancyhf{}
+%\rhead{\theauthor}
+%\lhead{\thetitle}
+%\cfoot{\thepage}
+
+\begin{document}
+\title{Project Proposal}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+	\centering
+    \vspace*{0.5 cm}
+    \includegraphics[scale = 0.11]{isu_seal.png}\\[1.0 cm]	% University Logo
+    \textsc{\LARGE IOWA STATE UNIVERSITY}\\[2.0 cm]
+    \textsc{\large AEROSPACE ENGINEERING DEPARTMENT}\\[0.2 cm]
+    \textsc{\large Computational Techniques for Aerospace Design}\\[0.2 cm]
+	\textsc{\Large AERE 361}\\[0.5 cm]				% Course Code
+	\textsc{\Large Project Proposal}\\[0.2 cm]
+	\textsc{\Large The B-Team}\\[0.2 cm]
+	\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+	%{ \huge \bfseries \thetitle}\\
+	
+	
+	\begin{minipage}{0.8\textwidth}
+		
+			\begin{flushleft} 
+			\emph{Team Member Names :} \\
+			White, Tristen\linebreak
+			McCarrick, Gerald\linebreak
+			Blochowitz, John\linebreak
+			Strobbe, Mitchell\linebreak
+			Case, Brandon\linebreak
+			
+		\end{flushleft}
+	\end{minipage}\\[2 cm]
+	
+	\vfill
+	
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\maketitle
+\tableofcontents
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section{ABSTRACT}
+This project includes the following members: Tristen White, Gerald McCarrick, John Blochowitz, Mitchell Strobbe, and Brandon Case. Side-scrolling games have been around for a very long time. One of the most popular, "Doodle Jumper" came out in 2009. Vertical scrolling games are even older. One example of the most famous would be "Flappy Bird" released in 2013. Our game will take the gameplay component of "Flappy bird" (ex. moving an object through obstacles) and integrate it with the tilt controls and vertical scrolling layout of "Doodle Jumper." Our main objective for this project is to create a game where the user has to stay active from start to end so they are always engaged. We will use the C language to create this game and display the visuals through the Adafruit CLUE board. Throughout the development process, we will continuously test our code and make critiques to ensure the game runs smoothly with little to no bugs. We not only want our game to be fully functional but efficient and compact as well. With our beginner level of knowledge, we hope to create a functional and nostalgic game for those who wish to play.
+
+\newpage
+\section{INTRODUCTION}
+Vertical-scrolling games have been around since the 1970s. These games are typically coded using subroutine blocks. These blocks of code control what is added to the game, such as obstacles, a user menu, and the player's character (\parencite{doi:10.1080/01449290410001669923}). In the case of our game, the purpose is to use tilt controls to roll a ball left and right to avoid random obstacles moving toward the player. A timer will keep track of the amount of time a player survives. When the ball collides with an object, the player loses and is returned to the start of the game. We, Tristen White, Gerald McCarrick, John Blochowitz, Mitchell Strobbe, and Brandon Case, intend to recreate this well-known game to give the user a glimpse into the nostalgia of a retro-feeling game.
+
+
+\newpage
+\section{FEATURES}
+Our game will be controlled with a simple interface of 2 buttons. We feel two buttons should be the bare minimum features of our project since a minimum of 2 buttons would be needed to control the menu and to exit the game. If pressed again, one button will be used to start playing along with exiting the game. The other will be used to view the high score; if held, it will turn off the handheld.
+
+The main method of controlling the ball to go between the gaps in the pillars will be with the built-in IMU (ST Micro series 9-DoF motion sensors). This will allow us to use tilt controls to move the ball from side to side. Many similar smartphone games use a similar control method, such as "Doodle Jump," where tilting the phone causes the player to move from side to side. In our case, this is necessary to make the game more difficult.
+
+Ideally, it will be able to fit into a compact handheld format. This would mean it should be free of cables and able to run solely on 3 AAA or AA batteries. The device's enclosure will be 3d printed; however, we aim to make it aesthetically pleasing and easy to hold. We think this is necessary because no one would want to play a game while having to hold onto a circuit board. The device's casing should also withstand slight abuse but nothing that would involve throwing or dropping.
+
+Another feature of the handheld would be that it should have an electronic buzzer. This would give tactile feedback for when the ball collides with the obstacles. If the player loses, it should play a losing sound. While this feature isn't technically necessary to the function of the game, many other retro handhelds have a simple buzzer implemented to play sound effects and music.
+
+Integrating a high score counter is also another part that would be important. This would allow players to see the highest score on the device. The high score could be based on how quickly levels are beaten, the highest level achieved, or the longest survival time. We have not decided what score metric we will use or if we will use multiple metrics. This detail will be decided once we have finalized the characteristics of the game's different levels.
+
+% Below is an example of inserting an image.  Not that LaTex
+% will determine the best location for the image.  Make sure
+% you replace this image with yours and place a proper caption.
+% You can use the \label{name} to name the figure and then reference
+% it from your writeup and LaTeX will automatically give it the correct
+% number. 
+\begin{figure}[!t]
+\centering
+\includegraphics[width=4.5in]{concept art 361.png}
+\caption{Handheld Concept Art}
+\label{fig:cpx}
+\end{figure}
+
+\newpage
+\section{PROBLEM STATEMENT}
+%1. Integrating game components/display- the ball, moving pillars collisions
+One of the most difficult issues in creating the code will be ensuring collisions between the ball and the obstacles are recognized. Recording and assessing a collision will require the scrolling component to respond to a rather small time step. Otherwise, on-screen collisions during gameplay will make the game slow and sluggish, and completely dysfunctional at worst. We must also constrain the ball's movement within the bounds of the screen, as it would not be good for the ball to vanish from the user's vision and "fall off" the screen while playing.  
+
+%2. Adjusting the game to get progressively harder
+Another challenge will be making the game progressively more difficult the longer the player plays. This would involve a separate time step only linked to the movement of the pillars. As a substitute for that, the obstacles may also be able to get more difficult. Either way, making randomly generated obstacles appear frequently will be a challenge. 
+
+%3. Integrating the IMU tilt controls 
+Figuring out how to convert IMU data to tilt controls will be difficult. It shouldn't be the most difficult part of the game; however, raw data has outliers, so the sensor will most likely need some filter to ensure the controls feel as intuitive as possible when tilting the device.
+
+%4. High Score or equivalent
+While nowhere near the challenge compared to any previously mentioned problems, storing the high score may also be an issue. It has to be able to save so that you can view the furthest that someone else has made it on the device. This will involve our team having to devise a counting system for the number of obstacles passed or the total time for a run. 
+
+%\cite{kernighan1978c}
+%\cite{basicgame}
+%\cite{doi:10.1080/01449290410001669923}
+
+\newpage
+\section{PROBLEM SOLUTION}
+All of the problems outlined in this report are primarily software related. As such, we must fully use C and its features and capabilities to create a fully functional game. 
+
+%Collisions and Constraints
+The ball and incoming obstacles will move in one dimension in our game. The ball will move left and right, whereas the incoming obstacles (which we will refer to as "bricks" throughout this report) will move vertically from the top of the screen toward the ball. Moving the ball left and right is relatively straightforward with button inputs- we define a variable for the ball's position, width, and height and then write a conditional if-else statement telling the ball to move left or right depending on if the left or right button is pressed. A function could be written in C to do this repeatedly, and said function would take the arguments of initial ball position, ball width, and height and update the ball's new position will a call of the function based on the left or right input of the user. However, our game will not use manual buttons but rather tilt controls. Still, the logic behind controlling the ball is the same- use conditional statements based on the tilt sensor's input to determine if the ball will move left or right. As for the bricks, C comes equipped with structures. A structure contains variables called members that can be initialized with "\emph{struct}." Variables can have the same name without conflict since they can always be distinguished by context (\parencite{kernighan1978c}), which we would use to declare an array of bricks to serve as obstacles for the ball to maneuver around. Said structure could contain important information about the bricks, mainly brick position (as x and y coordinates), brick width, and brick height. This information could then be passed into a function as inputs, and then the function will output the new position of the bricks (a similar strategy to moving the ball). We would need to initialize the speeds of the bricks beforehand with a separate variable.
+
+It is also worth noting that the screen on the Clue board will need to hold the data within the structures. This is plausible, as structures can be used to organize information in a way compatible with small screens, such as mobile device screens (\parencite{basicgame}).
+
+%if it doesn't auto-new page for the paragraphs
+%\newpage
+
+
+%2. Adjusting the game to get progressively harder
+As stated in the Problem Statement, we would like our game to feature increasing difficulty as the player gets farther along. To increase the difficulty, there are three options we see as good solutions:
+
+\begin{itemize}
+    \item Increased scroll rate
+    \item Increased obstacle density
+    \item Harder optimal path
+\end{itemize}
+
+The first is probably the easiest to implement, assuming the microcontroller and screen can process the graphics quickly enough. We can increase the scroll rate by running the game clock is a higher frequency. 
+
+The second option will also not be so hard to implement; as the game progresses, place more obstacles on the screen. This will require the user to process the information faster as more obstacles are coming. If all goes well with the structure and function method of generating bricks, we will already have a mechanism to do this. We can either update the speed of the moving bricks with each new level by gradually increasing the speed variable, which could be done with a "for" or "while" loop that updates every level. Alternatively, when randomly assigning the bricks to different locations, the program could create more bricks to avoid with each level. Both of these techniques would add difficulty to the game, and we may even be able to incorporate both into the game for higher levels.
+
+The third option is probably the hardest to implement. The player will have to move to avoid the obstacles. With increased density or scroll speed, this becomes harder, but we can also make the player move further to avoid the obstacle as they progress through the game. This option is the hardest but also the most challenging. So this difficult enhancement will only come late game, if at all.
+
+%3. Integrating the IMU tilt controls 
+Grabbing and filtering the data from the IMU to get an accurate angle reading may be a little challenging, but as it is not a new idea, there is probably a lot of good information on achieving this. 
+
+We could implement the tilt as a position control or velocity control. For example, the board's angle determines the user's position, or it could determine how fast the user's position changes. While the second one would be much more finicky, we think it would make the game more difficult. Because of this, we will start with the angle-controlling position and switch it over to accelerating control if the game proves too easy.
+
+%4. High Score or equivalent
+As previously said, the high score component will likely not be difficult to implement. The hardest part will be implementing a system that allows the user to decide which person to store the high score to. This feature will likely require a new menu, but it should be doable with only a two-button and angle tilts control system.
+
+%5. Preventing a laggy game
+As a final note, whichever route we choose to solve these problems, we will work to ensure that our code is as lean as possible. This is necessary to improve run-time performance and ensure the hardware controls adjust quickly enough to user inputs when playing the game. Nobody likes a "laggy" game!
+ 
+
+\begin{table}[ht]
+  \caption{Parts Requested}
+  \label{table:parts_list}
+  \begin{center}
+  \begin{tabular}{|p{3in}|c|}
+  
+  \hline
+  Part Description & Qty\\
+  \hline
+  \hline
+  Adafruit Clue Board & 1 \\
+  \hline
+  AAA Battery Holder & 1 \\
+  \hline
+  USB Cable & 1 \\
+  \hline
+  3D Printed Enclosure & 1 \\
+  \hline
+  Arcade Style Selection Buttons & 2\\
+  \hline
+  *Buzzer (if not included on the Clue Board) & 1\\
+  \hline
+  *On-Board Speaker (if we play a losing sound) & 1\\
+  \hline
+  "*" denotes potentially need &\\
+  \hline
+  \end{tabular}
+  \end{center}
+  \end{table}
+
+
+\newpage
+\section{CONCLUSION}
+Our team plans to begin by ensuring the code is developed first and as bug-free as possible. We hope to be able to spend a lot of time debugging and optimizing the code. One of the last steps of our project will be dedicating time to ensure the form and function of the 3D-printed enclosure. We will do our best to stick to the parts list outlined in this report, but we have a few backup plans if things don't go according to plan. With this project, we hope to deliver a functional and fun experience for anyone interested in retro-style games. 
+
+
+\newpage
+%\section{References}
+\printbibliography[heading=subbibintoc]
+%\bibliographystyle{plain}
+%\bibliography{ref}
+
+\end{document}
